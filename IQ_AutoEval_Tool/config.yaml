@@ -1,0 +1,18 @@
+model:
+  path: "yolov8n.pt"
+
+io:
+  input_dir: "./images"
+  output_csv: "report.csv"
+
+exposure:
+  overexpose_thresh: 245      # 过曝灰度阈值 (>= 该值视为溢出像素)
+  underexpose_thresh: 10      # 死黑灰度阈值 (<= 该值视为死黑像素)
+  over_ratio_limit: 0.05      # 过曝像素占比容忍水位线 (5%)
+  under_ratio_limit: 0.05     # 死黑像素占比容忍水位线 (5%)
+
+runtime:
+  image_extensions:
+    - ".jpg"
+    - ".jpeg"
+    - ".png"

@@ -4,8 +4,9 @@ class ObjectDetector:
     def __init__(self, model_path="yolov8n.pt"):
         self.model = YOLO(model_path)
 
-    def detect(self, image_path):
-        results = self.model(image_path, verbose=False)
+    def detect(self, image_input):
+        # image_input 既可以是图片路径，也可以是 cv2 读取后的 ndarray
+        results = self.model(image_input, verbose=False)
 
         boxes = []
         for r in results:
